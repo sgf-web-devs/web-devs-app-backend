@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-
     <nav class="navbar is-light">
-      <div class="navbar-brand navbar-item">
-        SGF Web Devs
+      <div class="container">
+        <div class="navbar-brand navbar-item">
+          SGF Web Devs
+        </div>
+        <router-link class="navbar-item" to="/">Welcome</router-link>
       </div>
-      <router-link class="navbar-item" to="/">Welcome</router-link>
     </nav>
     <main>
       <router-view/>
     </main>
   </div>
-
 </template>
 
 <script>

@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Welcome from '@/components/Welcome';
-import Admin from '@/components/Admin';
+import Welcome from '@/views/Welcome';
+import Admin from '@/views/Admin';
 
 Vue.use(Router);
 
