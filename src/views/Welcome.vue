@@ -29,6 +29,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+	.container
+		display flex
+		flex-wrap wrap
+
+		& > *
+			flex-basis 220px
+
 	.attendee
 		margin-bottom 5px
 </style>

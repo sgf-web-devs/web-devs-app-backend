@@ -20,6 +20,7 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style lang="stylus">
+  nav
+    margin-bottom 10px
+</style>5
