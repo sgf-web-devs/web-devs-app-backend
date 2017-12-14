@@ -11,7 +11,11 @@
 				</attendee>
 			</div>
 			<div class="column">
-				<prize-picker></prize-picker>
+				<prize-picker @picked="pickWinner($event)"></prize-picker>
+        <div class="content" v-if="winner">
+          <attendee :name="winner.name" :img="winner.img"></attendee>
+          <p>{{ winner.email }}</p>
+        </div>
 			</div>
 		</div>
 	</div>
@@ -26,9 +30,21 @@ import { attendees } from '../data/attendees';
 export default {
 	data() {
 		return {
-			attendees
+			attendees,
+      winner: false,
 		}
 	},
+
+  methods: {
+    pickWinner(prize) {
+      if (this.winner) return;
+
+      const rand = Math.floor(Math.random() * this.attendees.length);
+      this.winner = this.attendees[rand];
+
+      //TO DO: Fire off email to the winner
+    }
+  },
 
 	components: {
 		Attendee,

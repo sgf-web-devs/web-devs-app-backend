@@ -1,14 +1,14 @@
 <template>
   <div class="content">
-    <h1>Pick a Prize</h1>
-    <dropdown :items="prizes" @change="updatePrize($event)">hello</dropdown>
+    <dropdown :items="prizes" @change="updatePrize($event)">Pick a Prize</dropdown>
+
+    <button class="button" @click="emitPicked()">Pick Winner</button>
   </div>
 </template>
 
 <script>
   import { prizes} from "../data/prizes";
   import Dropdown from './Dropdown';
-
 
   export default {
     data() {
@@ -21,6 +21,15 @@
     methods: {
       updatePrize(item) {
         this.prize = item;
+      },
+
+      emitPicked() {
+        if (this.prize === '') {
+          alert('Select a prize first');
+          return;
+        }
+
+        this.$emit('picked', this.prize);
       }
     },
 

@@ -4,4 +4,4 @@ export const prizes = [
 	'Prize 3',
 	'Prize 4',
 	'Prize 5'
-]
+];
