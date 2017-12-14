@@ -12,15 +12,10 @@
 
 <script>
 
-import { attendees } from '../data/attendees';
 import Attendee from '../components/Attendee';
 
 export default {
-  data() {
-		return {
-			attendees
-		}
-	},
+  props: ['attendees'],
 
 	components: {
 		Attendee

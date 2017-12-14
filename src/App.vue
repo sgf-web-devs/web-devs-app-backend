@@ -9,14 +9,26 @@
       </div>
     </nav>
     <main>
-      <router-view></router-view>
+      <router-view :attendees="attendees"></router-view>
     </main>
   </div>
 </template>
 
 <script>
+  import { attendees} from './data/attendees';
+
   export default {
-    name: 'app'
+    name: 'app',
+
+    data() {
+      return {
+        attendees
+      }
+    },
+
+    created() {
+      //TO DO: Retrieve list of attendees here
+    }
   };
 </script>
 

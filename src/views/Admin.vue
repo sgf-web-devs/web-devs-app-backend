@@ -25,12 +25,13 @@
 
 import Attendee from '../components/Attendee.vue';
 import PrizePicker from '../components/PrizePicker.vue';
-import { attendees } from '../data/attendees';
+//import { attendees } from '../data/attendees';
 
 export default {
+  props: ['attendees'],
+
 	data() {
 		return {
-			attendees,
       winner: false,
 		}
 	},
