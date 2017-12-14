@@ -11,7 +11,7 @@
 				</attendee>
 			</div>
 			<div class="column">
-				
+				<prize-picker></prize-picker>
 			</div>
 		</div>
 	</div>
@@ -20,6 +20,7 @@
 <script>
 
 import Attendee from '../components/Attendee.vue';
+import PrizePicker from '../components/PrizePicker.vue';
 import { attendees } from '../data/attendees';
 
 export default {
@@ -30,7 +31,8 @@ export default {
 	},
 
 	components: {
-		Attendee
+		Attendee,
+		PrizePicker
 	}
 }
 </script>
@@ -42,6 +44,7 @@ export default {
 
 		& > *
 			flex-basis 220px
+
 .attendee
 		margin-bottom 5px
 </style>
