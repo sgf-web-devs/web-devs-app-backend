@@ -9,15 +9,15 @@
       </div>
     </nav>
     <main>
-      <router-view/>
+      <router-view></router-view>
     </main>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  export default {
+    name: 'app'
+  };
 </script>
 
 <style lang="stylus">
