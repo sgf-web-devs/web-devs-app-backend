@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Declare any web routes before this catch all route
+Route::get('/{any}', 'AngularController@index')->where('any', '.*');
