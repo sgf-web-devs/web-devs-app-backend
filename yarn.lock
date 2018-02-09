@@ -203,8 +203,8 @@
     "@types/jasmine" "*"
 
 "@types/node@^6.0.46", "@types/node@~6.0.60":
-  version "6.0.98"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.98.tgz#69e6af43ade9e76bc5fba6864cd16195564b9d35"
+  version "6.0.99"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.99.tgz#3169584cc922a362ec45207c957e04b0c8d8c8f5"
 
 "@types/q@^0.0.32":
   version "0.0.32"
@@ -253,11 +253,18 @@ acorn-dynamic-import@^2.0.0:
   dependencies:
     acorn "^4.0.3"
 
+acorn-node@^1.2.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/acorn-node/-/acorn-node-1.3.0.tgz#5f86d73346743810ef1269b901dbcbded020861b"
+  dependencies:
+    acorn "^5.4.1"
+    xtend "^4.0.1"
+
 acorn@^4.0.3:
   version "4.0.13"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.13.tgz#105495ae5361d697bd195c825192e1ad7f253787"
 
-acorn@^5.0.0, acorn@^5.2.1:
+acorn@^5.0.0, acorn@^5.2.1, acorn@^5.4.1:
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.4.1.tgz#fdc58d9d17f4a4e98d102ded826a9b9759125102"
 
@@ -808,8 +815,8 @@ boom@5.x.x:
     hoek "4.x.x"
 
 brace-expansion@^1.1.7:
-  version "1.1.8"
-  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.8.tgz#c07b211c7c952ec1f8efd51a77ef0d1d3990a292"
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.9.tgz#acdc7dde0e939fb3b32fe933336573e2a7dc2b7c"
   dependencies:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
@@ -1114,12 +1121,12 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000804"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000804.tgz#84feb42018fc64cf6aff6371e43115f292c00179"
+  version "1.0.30000805"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000805.tgz#8f1ad9264c835989b5055dd9b009513ce6d95338"
 
 caniuse-lite@^1.0.30000791, caniuse-lite@^1.0.30000792:
-  version "1.0.30000804"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000804.tgz#8729a143d65378e8936adbb161f550e9c49fc09d"
+  version "1.0.30000805"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000805.tgz#83a5f21ead01486e67bccca6fae5dca7cde496de"
 
 caseless@~0.11.0:
   version "0.11.0"
@@ -1178,8 +1185,8 @@ chokidar@^1.4.1, chokidar@^1.4.2, chokidar@^1.7.0:
     fsevents "^1.0.0"
 
 chokidar@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.0.0.tgz#6686313c541d3274b2a5c01233342037948c911b"
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-2.0.1.tgz#6e67e9998fe10e8f651e975ca62460456ff8e297"
   dependencies:
     anymatch "^2.0.0"
     async-each "^1.0.0"
@@ -1191,6 +1198,7 @@ chokidar@^2.0.0:
     normalize-path "^2.1.1"
     path-is-absolute "^1.0.0"
     readdirp "^2.0.0"
+    upath "1.0.0"
   optionalDependencies:
     fsevents "^1.0.0"
 
@@ -1373,13 +1381,9 @@ commander@2.12.x:
   version "2.12.2"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.12.2.tgz#0f5946c427ed9ec0d91a46bb9def53e54650e555"
 
-commander@^2.12.1, commander@^2.9.0:
+commander@^2.12.1, commander@^2.9.0, commander@~2.14.1:
   version "2.14.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.14.1.tgz#2235123e37af8ca3c65df45b026dbd357b01b9aa"
-
-commander@~2.13.0:
-  version "2.13.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
 
 common-tags@^1.3.1:
   version "1.7.2"
@@ -1508,18 +1512,16 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
 
 copy-webpack-plugin@^4.1.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.3.1.tgz#19ba6370bf6f8e263cbd66185a2b79f2321a9302"
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.4.1.tgz#1e8c366211db6dc2ddee40e5a3e4fc661dd149e8"
   dependencies:
     cacache "^10.0.1"
     find-cache-dir "^1.0.0"
     globby "^7.1.1"
     is-glob "^4.0.0"
     loader-utils "^0.2.15"
-    lodash "^4.3.0"
     minimatch "^3.0.4"
     p-limit "^1.0.0"
-    pify "^3.0.0"
     serialize-javascript "^1.4.0"
 
 core-js@^2.2.0, core-js@^2.4.0, core-js@^2.4.1:
@@ -4068,7 +4070,11 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@^4.0.0, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.3.0, lodash@^4.5.0, lodash@~4.17.4:
+lodash@3.x:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
+
+lodash@^4.0.0, lodash@^4.11.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.5.0, lodash@~4.17.4:
   version "4.17.5"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
 
@@ -4648,6 +4654,10 @@ normalize-url@^1.4.0:
     prepend-http "^1.0.0"
     query-string "^4.1.0"
     sort-keys "^1.0.0"
+
+normalize.css@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-8.0.0.tgz#14ac5e461612538a4ce9be90a7da23f86e718493"
 
 npm-run-path@^2.0.0:
   version "2.0.2"
@@ -6702,10 +6712,10 @@ symbol-observable@1.0.1:
   resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.1.tgz#8340fc4702c3122df5d22288f88283f513d3fdd4"
 
 syntax-error@^1.1.1:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/syntax-error/-/syntax-error-1.3.0.tgz#1ed9266c4d40be75dc55bf9bb1cb77062bb96ca1"
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/syntax-error/-/syntax-error-1.4.0.tgz#2d9d4ff5c064acb711594a3e3b95054ad51d907c"
   dependencies:
-    acorn "^4.0.3"
+    acorn-node "^1.2.0"
 
 tapable@^0.2.7:
   version "0.2.8"
@@ -6960,17 +6970,17 @@ typescript@~2.6.2:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
 
 uglify-es@^3.3.4:
-  version "3.3.9"
-  resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.3.9.tgz#0c1c4f0700bed8dbc124cdb304d2592ca203e677"
+  version "3.3.10"
+  resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.3.10.tgz#8b0b7992cebe20edc26de1bf325cef797b8f3fa5"
   dependencies:
-    commander "~2.13.0"
+    commander "~2.14.1"
     source-map "~0.6.1"
 
 uglify-js@3.3.x:
-  version "3.3.9"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.3.9.tgz#33869666c8ab7f7658ce3d22f0f1ced40097d33a"
+  version "3.3.10"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.3.10.tgz#8e47821d4cf28e14c1826a0078ba0825ed094da8"
   dependencies:
-    commander "~2.13.0"
+    commander "~2.14.1"
     source-map "~0.6.1"
 
 uglify-js@^2.6, uglify-js@^2.8.29:
@@ -7022,6 +7032,10 @@ ultron@~1.1.0:
 umd@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/umd/-/umd-3.0.1.tgz#8ae556e11011f63c2596708a8837259f01b3d60e"
+
+underscore.string@2.3.x:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-2.3.3.tgz#71c08bf6b428b1133f37e78fa3a21c82f7329b0d"
 
 underscore@~1.7.0:
   version "1.7.0"
@@ -7076,6 +7090,13 @@ unset-value@^1.0.0:
   dependencies:
     has-value "^0.3.1"
     isobject "^3.0.0"
+
+upath@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/upath/-/upath-1.0.0.tgz#b4706b9461ca8473adf89133d235689ca17f3656"
+  dependencies:
+    lodash "3.x"
+    underscore.string "2.3.x"
 
 upper-case@^1.1.1:
   version "1.1.3"
@@ -7445,8 +7466,8 @@ xml2js@^0.4.17:
     xmlbuilder "~9.0.1"
 
 xmlbuilder@>=1.0.0, xmlbuilder@~9.0.1:
-  version "9.0.4"
-  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-9.0.4.tgz#519cb4ca686d005a8420d3496f3f0caeecca580f"
+  version "9.0.7"
+  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-9.0.7.tgz#132ee63d2ec5565c557e20f4c22df9aca686b10d"
 
 xmlhttprequest-ssl@~1.5.4:
   version "1.5.5"
