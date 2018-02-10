@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
@@ -7,3 +8,16 @@ export const routes: Routes = [
   { path: '/dashboard', component: DashboardComponent },
   { path: '/admin', loadChildren: './admin/admin.module#AdminModule'}
 ];
+
+@NgModule({
+  declarations: [
+    DashboardComponent
+  ],
+  imports: [
+    RouterModule.forRoot(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
+})
+export class AppRoutingModule {}
