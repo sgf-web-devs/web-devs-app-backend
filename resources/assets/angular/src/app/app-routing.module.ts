@@ -10,14 +10,9 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    DashboardComponent
-  ],
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
+
+export const routingComponents = [ DashboardComponent ];

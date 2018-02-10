@@ -24,4 +24,4 @@ import {
     MatCardModule
   ]
 })
-export class MaterialModule {}
+export class SharedModule { }
