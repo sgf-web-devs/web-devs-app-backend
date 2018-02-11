@@ -5,7 +5,7 @@ import * as logoImg from '../../../assets/web-devs-logo.svg';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.styl']
+  styleUrls: ['./dashboard.component.sass']
 })
 export class DashboardComponent implements OnInit {
   public logo = logoImg;

@@ -6,7 +6,8 @@ import {
   MatMenuModule,
   MatToolbarModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
+  MatSidenavModule
 } from '@angular/material';
 
 @NgModule({
@@ -16,7 +17,8 @@ import {
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSidenavModule
   ],
   exports: [
     MatButtonModule,
@@ -24,7 +26,8 @@ import {
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSidenavModule
   ]
 })
 export class SharedModule { }
