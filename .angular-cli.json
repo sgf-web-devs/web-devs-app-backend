@@ -9,7 +9,7 @@
 			"outDir": "public/dist",
 			"deployUrl": "/dist/",
       "assets": [
-        "assets"
+        "static"
       ],
       "index": "index.html",
       "main": "main.ts",
