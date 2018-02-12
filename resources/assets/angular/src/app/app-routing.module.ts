@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AttendeeComponent } from './components/attendee/attendee.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -15,4 +16,4 @@ export const routes: Routes = [
 })
 export class AppRoutingModule {}
 
-export const routingComponents = [ DashboardComponent ];
+export const routingComponents = [ DashboardComponent, AttendeeComponent ];

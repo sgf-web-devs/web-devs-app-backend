@@ -1,3 +1,16 @@
 <div class="header">
 	<img [src]="logo" alt="SGF Web Devs logo" class="logo">
 </div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12 col-sm-4 col-md-3"
+		*ngFor="let attendee of attendees">
+			<app-attendee [attendee]="attendee"></app-attendee>
+		</div>
+	</div>
+</div>
+
+<button mat-fab class="refresh-button">
+	<mat-icon>refresh</mat-icon>
+</button>

@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
+import { AttendeeService } from './providers/attendee/attendee.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
     AppRoutingModule,
     SharedModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [AttendeeService]
 })
 export class AppModule { }
