@@ -8,7 +8,6 @@ import {
   MatIconModule,
   MatCardModule,
   MatSidenavModule,
-  MatGridListModule
 } from '@angular/material';
 
 @NgModule({
@@ -19,8 +18,7 @@ import {
     MatIconModule,
     MatCardModule,
     HttpClientModule,
-    MatSidenavModule,
-    MatGridListModule
+    MatSidenavModule
   ],
   exports: [
     MatButtonModule,
@@ -29,8 +27,7 @@ import {
     MatIconModule,
     MatCardModule,
     HttpClientModule,
-    MatSidenavModule,
-    MatGridListModule
+    MatSidenavModule
   ]
 })
 export class SharedModule { }
