@@ -2,7 +2,12 @@ import { NgModule } from '@angular/core';
 import { AdminRoutingModule, routingComponents } from './admin-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatInputModule, MatCardModule, } from '@angular/material';
+import {
+  MatFormFieldModule,
+  MatInputModule,
+  MatCardModule,
+  MatSidenavModule
+} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -12,6 +17,7 @@ import { MatFormFieldModule, MatInputModule, MatCardModule, } from '@angular/mat
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
+    MatSidenavModule
   ],
   declarations: [
     routingComponents

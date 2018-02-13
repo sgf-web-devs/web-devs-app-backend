@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import {
@@ -6,7 +7,6 @@ import {
   MatMenuModule,
   MatToolbarModule,
   MatIconModule,
-  MatSidenavModule,
 } from '@angular/material';
 
 @NgModule({
@@ -16,7 +16,7 @@ import {
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
-    MatSidenavModule
+    CommonModule
   ],
   exports: [
     MatButtonModule,
@@ -24,7 +24,7 @@ import {
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
-    MatSidenavModule
+    CommonModule
   ]
 })
 export class SharedModule { }
