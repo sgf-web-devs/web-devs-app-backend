@@ -2580,6 +2580,12 @@ flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
 
+flexboxgrid-sass@^8.0.5:
+  version "8.0.5"
+  resolved "https://registry.yarnpkg.com/flexboxgrid-sass/-/flexboxgrid-sass-8.0.5.tgz#18027bc7a92f98ce877725cb36f0173bd1e74f17"
+  dependencies:
+    sass-flex-mixin "^1.0.3"
+
 flush-write-stream@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flush-write-stream/-/flush-write-stream-1.0.2.tgz#c81b90d8746766f1a609a46809946c45dd8ae417"
@@ -5985,6 +5991,10 @@ rxjs@^5.5.6:
 safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
+
+sass-flex-mixin@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/sass-flex-mixin/-/sass-flex-mixin-1.0.3.tgz#a504d62062f7b0e773aebc395de1f45aaa6e4fd0"
 
 sass-graph@^2.2.4:
   version "2.2.4"
