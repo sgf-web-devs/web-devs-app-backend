@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
-import { AdminRoutingModule, routingComponents } from './admin-routing.module';
-import { SharedModule } from '../shared/shared.module';
+import { LayoutModule } from '@angular/cdk/layout';
 import { FormsModule } from '@angular/forms';
 import {
   MatFormFieldModule,
   MatInputModule,
   MatCardModule,
-  MatSidenavModule
+  MatSidenavModule,
+  MatListModule,
 } from '@angular/material';
+
+import { AdminRoutingModule, routingComponents } from './admin-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -17,7 +20,9 @@ import {
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule,
+    LayoutModule
   ],
   declarations: [
     routingComponents
