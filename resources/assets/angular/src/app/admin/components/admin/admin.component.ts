@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
@@ -7,20 +7,29 @@ import { MediaMatcher } from '@angular/cdk/layout';
   styleUrls: ['./admin.component.sass']
 })
 export class AdminComponent implements OnDestroy {
-  mobileQuery: MediaQueryList;
-  private _mobileQueryListener: () => void;
+  public mobileQuery: MediaQueryList;
+  public isMobile: boolean;
+  public sideNavOpened: boolean;
 
-  constructor(
-    changeDetectorRef: ChangeDetectorRef,
-    media: MediaMatcher
-  ) {
+  constructor(media: MediaMatcher, private cd: ChangeDetectorRef) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
+    this.mobileQuery.addListener(this.mobileQueryListener.bind(this));
+    this.isMobile = this.mobileQuery.matches;
+    this.sideNavOpened = !this.mobileQuery.matches;
+  }
+
+  mobileQueryListener(e) {
+    this.sideNavOpened = !e.matches;
+    this.isMobile = e.matches;
+    this.cd.detectChanges();
   }
 
   ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
+    this.mobileQuery.removeListener(this.mobileQueryListener);
+  }
+
+  toggleSideNav() {
+    this.sideNavOpened = !this.sideNavOpened;
   }
 
 }

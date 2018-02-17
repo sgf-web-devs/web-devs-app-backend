@@ -1,17 +1,19 @@
-<div class="admin-container" [class.is-mobile]="mobileQuery.matches">
+<div class="admin-container" [class.is-mobile]="isMobile">
 	<mat-toolbar color="primary" class="admin-toolbar">
-		<button mat-icon-button (click)="snav.toggle()">
+		<button
+			mat-icon-button
+			(click)="toggleSideNav()"
+			class="mobile-menu-button">
 			<mat-icon>menu</mat-icon>
 		</button>
 		<h1>SGF Web Devs</h1>
 	</mat-toolbar>
-	<mat-sidenav-container
-		class="sidenav-container"
-		[style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+	<mat-sidenav-container class="sidenav-container">
 		<mat-sidenav
-			#snav
-			[mode]="mobileQuery.matches ? 'over' : 'side'"
-			[fixedInViewport]="mobileQuery.matches"
+			#sideNav
+			[mode]="isMobile ? 'over' : 'side'"
+			[opened]="sideNavOpened"
+			[fixedInViewport]="isMobile"
 			fixedTopGap="56">
 			<mat-nav-list>
 				<a mat-list-item routerLink=".">Test</a>

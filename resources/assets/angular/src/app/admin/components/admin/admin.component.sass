@@ -8,12 +8,19 @@
 	right: 0
 
 .sidenav-container
+	margin-top: 0
 	flex: 1
 
+.mobile-menu-button
+	display: none
+
 .is-mobile
+	.mobile-menu-button
+		display: block
 
 	.sidenav-container
 		flex: 1 0 auto
+		margin-top: 56px
 
 	.admin-toolbar
 		position: fixed
