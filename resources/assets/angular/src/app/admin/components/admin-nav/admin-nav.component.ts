@@ -3,10 +3,10 @@ import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.sass']
+  templateUrl: './admin-nav.component.html',
+  styleUrls: ['./admin-nav.component.sass']
 })
-export class AdminComponent implements OnDestroy {
+export class AdminNavComponent implements OnDestroy {
   public mobileQuery: MediaQueryList;
   public isMobile: boolean;
   public sideNavOpened: boolean;
