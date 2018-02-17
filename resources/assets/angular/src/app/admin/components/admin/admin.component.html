@@ -10,17 +10,17 @@
 	</mat-toolbar>
 	<mat-sidenav-container class="sidenav-container">
 		<mat-sidenav
-			#sideNav
+			class="sidenav"
 			[mode]="isMobile ? 'over' : 'side'"
-			[opened]="sideNavOpened"
+			[(opened)]="sideNavOpened"
 			[fixedInViewport]="isMobile"
 			fixedTopGap="56">
 			<mat-nav-list>
-				<a mat-list-item routerLink=".">Test</a>
+				<a mat-list-item routerLink="/admin/raffle">Raffle</a>
+				<a mat-list-item routerLink="/admin/prizes">Prizes</a>
 			</mat-nav-list>
 		</mat-sidenav>
 		<mat-sidenav-content>
-			<p>Test</p>
 			<router-outlet></router-outlet>
 		</mat-sidenav-content>
 	</mat-sidenav-container>

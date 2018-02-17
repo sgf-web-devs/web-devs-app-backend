@@ -12,12 +12,18 @@ export class AdminComponent implements OnDestroy {
   public sideNavOpened: boolean;
 
   constructor(media: MediaMatcher, private cd: ChangeDetectorRef) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    // Create MediaQueryList and add listener
+    this.mobileQuery = media.matchMedia('(max-width: 768px)');
     this.mobileQuery.addListener(this.mobileQueryListener.bind(this));
+    // Use MediaQueryList to set initial sidenav state
     this.isMobile = this.mobileQuery.matches;
     this.sideNavOpened = !this.mobileQuery.matches;
   }
 
+  /**
+   * Gets fired when screen sizes goes above or below 600px
+   * @param e
+   */
   mobileQueryListener(e) {
     this.sideNavOpened = !e.matches;
     this.isMobile = e.matches;

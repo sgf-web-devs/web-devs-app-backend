@@ -11,6 +11,9 @@
 	margin-top: 0
 	flex: 1
 
+.sidenav
+	width: 200px
+
 .mobile-menu-button
 	display: none
 
@@ -20,7 +23,10 @@
 
 	.sidenav-container
 		flex: 1 0 auto
-		margin-top: 56px
+		margin-top: 64px
+
+		@media(max-width: 600px)
+			margin-top: 56px
 
 	.admin-toolbar
 		position: fixed
