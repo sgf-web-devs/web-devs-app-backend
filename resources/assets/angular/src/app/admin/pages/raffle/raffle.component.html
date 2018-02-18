@@ -1,3 +1,28 @@
-<p>
-  raffle works!
-</p>
+<div class="full-screen vertical-center">
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <mat-card>
+        <mat-card-content>
+          <div class="profile-img">
+            <img [src]="winner.photo" alt="{{ winner.name }} profile image">
+          </div>
+          <div class="attendee-info">
+            <h2>{{ winner.name }}</h2>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <mat-card>
+        <mat-card-content class="prize-form">
+          <mat-form-field>
+            <mat-select [(value)]="selectedPrize" placeholder="Choose a prize" required>
+              <mat-option *ngFor="let prize of prizes" [value]="prize">{{ prize }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="selectWinner()">Select Winner</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

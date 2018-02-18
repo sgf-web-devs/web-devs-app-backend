@@ -1,3 +1,5 @@
+@import '../../../../sass/variables'
+
 .admin-container
 	display: flex
 	flex-direction: column
@@ -23,14 +25,14 @@
 
 	.sidenav-container
 		flex: 1 0 auto
-		margin-top: 64px
+		margin-top: $toolbar-height
 
 		@media(max-width: 600px)
-			margin-top: 56px
+			margin-top: $toolbar-mobile-height
 
 	.admin-toolbar
 		position: fixed
 		z-index: 2
 
-
-
+mat-sidenav-content
+	padding: 0 30px

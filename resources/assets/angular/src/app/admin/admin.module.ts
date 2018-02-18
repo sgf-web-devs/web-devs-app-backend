@@ -7,10 +7,12 @@ import {
   MatCardModule,
   MatSidenavModule,
   MatListModule,
+  MatSelectModule
 } from '@angular/material';
 
 import { AdminRoutingModule, routingComponents } from './admin-routing.module';
 import { SharedModule } from '../shared/shared.module';
+
 
 @NgModule({
   imports: [
@@ -22,6 +24,7 @@ import { SharedModule } from '../shared/shared.module';
     MatCardModule,
     MatSidenavModule,
     MatListModule,
+    MatSelectModule,
     LayoutModule
   ],
   declarations: [

@@ -1,0 +1,12 @@
+.full-screen
+	min-height: calc(100vh - #{$toolbar-height})
+
+	@media(max-width: 600px)
+		min-height: calc(100vh - #{$toolbar-mobile-height})
+
+.vertical-center
+	display: flex
+	align-items: center
+
+	> *
+		flex: 1 1 auto
