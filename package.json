@@ -4,8 +4,9 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
+    "start": "ng serve --vendor-chunk --host 0.0.0.0",
+    "dev": "npm run start",
+    "build": "ng build --prod --vendor-chunk",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
