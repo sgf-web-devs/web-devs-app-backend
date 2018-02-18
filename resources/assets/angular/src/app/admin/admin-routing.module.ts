@@ -19,4 +19,4 @@ const routes: Routes = [
 })
 export class AdminRoutingModule { }
 
-export const routingComponents = [ LoginComponent, RaffleComponent, AdminNavComponent, PrizesComponent ];
+export const adminRoutingComponents = [ LoginComponent, RaffleComponent, AdminNavComponent, PrizesComponent ];

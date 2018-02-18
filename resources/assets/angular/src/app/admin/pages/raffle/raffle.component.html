@@ -20,7 +20,12 @@
               <mat-option *ngFor="let prize of prizes" [value]="prize">{{ prize }}</mat-option>
             </mat-select>
           </mat-form-field>
-          <button mat-raised-button color="primary" (click)="selectWinner()">Select Winner</button>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="selectWinner()"
+            [disabled]="selectedPrize === ''">
+            Select Winner</button>
         </mat-card-content>
       </mat-card>
     </div>

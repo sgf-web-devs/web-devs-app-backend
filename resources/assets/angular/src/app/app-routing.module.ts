@@ -16,4 +16,4 @@ export const routes: Routes = [
 })
 export class AppRoutingModule {}
 
-export const routingComponents = [ DashboardComponent, AttendeeComponent ];
+export const appRoutingComponents = [ DashboardComponent, AttendeeComponent ];

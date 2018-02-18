@@ -10,7 +10,7 @@ import {
   MatSelectModule
 } from '@angular/material';
 
-import { AdminRoutingModule, routingComponents } from './admin-routing.module';
+import { AdminRoutingModule, adminRoutingComponents } from './admin-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 
@@ -28,7 +28,7 @@ import { SharedModule } from '../shared/shared.module';
     LayoutModule
   ],
   declarations: [
-    routingComponents
+    adminRoutingComponents
   ]
 })
 export class AdminModule { }
