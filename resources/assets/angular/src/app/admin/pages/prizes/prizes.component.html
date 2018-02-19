@@ -24,3 +24,7 @@
     <mat-row *matRowDef="let prize; columns: shownColumns;"></mat-row>
   </mat-table>
 </mat-card>
+
+<button mat-fab class="add-prize-button" (click)="showAddPrizeForm()">
+  <mat-icon>add</mat-icon>
+</button>

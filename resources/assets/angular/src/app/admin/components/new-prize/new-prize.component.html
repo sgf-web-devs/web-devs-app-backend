@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Add Prize</h1>
+<div mat-dialog-content>
+  <div class="row middle-xs">
+    <div class="col-xs-9">
+      <mat-form-field class="name-input">
+        <input matInput placeholder="Name" cdkFocusInitial [(ngModel)]="newPrize.name">
+      </mat-form-field>
+    </div>
+    <div class="col-xs-3 ">
+      <mat-checkbox [(ngModel)]="newPrize.enabled" >Enabled</mat-checkbox>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions class="row end-xs">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button
+    mat-raised-button
+    [mat-dialog-close]="newPrize"
+    [disabled]="newPrize.name === ''"
+    color="primary">
+    Add</button>
+</div>

@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatSort, MatTableDataSource } from '@angular/material';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MatSort, MatTableDataSource } from '@angular/material';
+import { NewPrizeComponent } from '../../components/new-prize/new-prize.component';
 
 @Component({
   selector: 'app-prizes',
@@ -12,7 +13,7 @@ export class PrizesComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSort) public sort: MatSort;
 
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
     const prizes = [
@@ -26,6 +27,16 @@ export class PrizesComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.tableData.sort = this.sort;
+  }
+
+  showAddPrizeForm() {
+    const dialogRef = this.dialog.open(NewPrizeComponent, {
+      width: '500px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.tableData.data = [...this.tableData.data, result];
+    });
   }
 
 }

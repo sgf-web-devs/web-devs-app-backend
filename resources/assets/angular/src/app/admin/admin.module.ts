@@ -11,11 +11,13 @@ import {
   MatTableModule,
   MatCheckboxModule,
   MatSortModule,
+  MatDialogModule,
 } from '@angular/material';
 
 import { AdminRoutingModule, adminRoutingComponents } from './admin-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { InlineEditComponent } from './components/inline-edit/inline-edit.component';
+import { NewPrizeComponent } from './components/new-prize/new-prize.component';
 
 
 @NgModule({
@@ -32,11 +34,16 @@ import { InlineEditComponent } from './components/inline-edit/inline-edit.compon
     MatTableModule,
     MatCheckboxModule,
     MatSortModule,
+    MatDialogModule,
     LayoutModule
   ],
   declarations: [
     adminRoutingComponents,
-    InlineEditComponent
+    InlineEditComponent,
+    NewPrizeComponent
+  ],
+  entryComponents: [
+    NewPrizeComponent
   ]
 })
 export class AdminModule { }
