@@ -4,10 +4,31 @@
 			#inputEl
 			type="text"
 			matInput
-			[value]="value"
-			(blur)="editing = false"
-			(keyup.enter)="editing = false"
-			(keyup.esc)="editing = false">
+			[(ngModel)]="newValue"
+			(blur)="cancel($event)"
+			(keyup.enter)="save()"
+			(keyup.esc)="cancel()">
+		<button
+			[id]="saveBtnReferenceId"
+			mat-button
+			matSuffix
+			mat-icon-button
+			aria-label="Cancel"
+			(click)="save()"
+			matTooltip="Save"
+			matTooltipPosition="above">
+			<mat-icon>check</mat-icon>
+		</button>
+		<button
+			mat-button
+			matSuffix
+			mat-icon-button
+			aria-label="Cancel"
+			(click)="cancel()"
+			matTooltip="Cancel"
+			matTooltipPosition="above">
+			<mat-icon>close</mat-icon>
+		</button>
 	</mat-form-field>
 	<span
 		[style.display]="!editing ? 'initial': 'none'"

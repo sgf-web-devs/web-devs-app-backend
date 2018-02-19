@@ -9,7 +9,7 @@
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
       <mat-cell *matCellDef="let prize">
-        <app-inline-edit [value]="prize.name" (change)="updatePrize(prize)"></app-inline-edit>
+        <app-inline-edit [value]="prize.name" (update)="updatePrize(prize, $event)"></app-inline-edit>
       </mat-cell>
     </ng-container>
 

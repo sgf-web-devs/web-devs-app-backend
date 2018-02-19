@@ -12,6 +12,7 @@ import {
   MatCheckboxModule,
   MatSortModule,
   MatDialogModule,
+  MatTooltipModule,
 } from '@angular/material';
 
 import { AdminRoutingModule, adminRoutingComponents } from './admin-routing.module';
@@ -35,6 +36,7 @@ import { NewPrizeComponent } from './components/new-prize/new-prize.component';
     MatCheckboxModule,
     MatSortModule,
     MatDialogModule,
+    MatTooltipModule,
     LayoutModule
   ],
   declarations: [
