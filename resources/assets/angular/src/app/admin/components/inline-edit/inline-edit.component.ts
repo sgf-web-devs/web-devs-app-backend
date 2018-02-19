@@ -38,7 +38,7 @@ export class InlineEditComponent implements OnInit {
     }, 0);
   }
 
-  cancel(event) {
+  cancel(event?) {
     // cancel is fired on blur, and clicking the save button
     // blurs the input. This is here to check that we didn't
     // hit the save button before canceling
