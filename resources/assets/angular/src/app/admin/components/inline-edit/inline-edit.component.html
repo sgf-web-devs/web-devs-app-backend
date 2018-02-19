@@ -1,0 +1,6 @@
+<div class="root">
+	<mat-form-field [style.display]="editing ? 'initial': 'none'" >
+		<input #inputEl type="text" matInput [value]="value" (blur)="editing = false" (keyup.enter)="editing = false" (keyup.esc)="editing = false">
+	</mat-form-field>
+	<span [style.display]="!editing ? 'initial': 'none'" (click)="startEditing()" tabindex="0" (keyup.enter)="startEditing()">{{ value }}</span>
+</div>

@@ -15,6 +15,7 @@ import {
 
 import { AdminRoutingModule, adminRoutingComponents } from './admin-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { InlineEditComponent } from './components/inline-edit/inline-edit.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { SharedModule } from '../shared/shared.module';
     LayoutModule
   ],
   declarations: [
-    adminRoutingComponents
+    adminRoutingComponents,
+    InlineEditComponent
   ]
 })
 export class AdminModule { }

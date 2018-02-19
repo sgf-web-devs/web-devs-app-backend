@@ -1,24 +1,26 @@
 <mat-card>
-  <mat-table #table [dataSource]="tableData" matSort>
+  <mat-table [dataSource]="tableData" matSort>
 
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ row.id }}</mat-cell>
+      <mat-cell *matCellDef="let prize">{{ prize.id }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ row.name }}</mat-cell>
+      <mat-cell *matCellDef="let prize">
+        <app-inline-edit [value]="prize.name" (change)="updatePrize(prize)"></app-inline-edit>
+      </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="enabled">
       <mat-header-cell *matHeaderCellDef>Enabled</mat-header-cell>
-      <mat-cell *matCellDef="let row" class="allow-overflow">
-        <mat-checkbox [(ngModel)]="row.enabled"></mat-checkbox>
+      <mat-cell *matCellDef="let prize" class="allow-overflow">
+        <mat-checkbox [(ngModel)]="prize.enabled"></mat-checkbox>
       </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="shownColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: shownColumns;"></mat-row>
+    <mat-row *matRowDef="let prize; columns: shownColumns;"></mat-row>
   </mat-table>
 </mat-card>
