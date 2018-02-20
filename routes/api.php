@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 // Public routes
 // All events
 Route::get('/events');
-// Current event
+// Upcoming event
 Route::get('/event');
 // Specific event
 Route::get('/event/:id');
@@ -33,5 +33,7 @@ Route::get('/prizes/enabled');
 Route::post('/prize');
 // Update prize
 Route::patch('/prize/:id');
+// Delete prize
+Route::delete('/prize/:id');
 // Pick random winner
-Route::get('/winner');
+Route::post('/winner');
