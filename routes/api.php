@@ -13,6 +13,25 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Public routes
+// All events
+Route::get('/events');
+// Current event
+Route::get('/event');
+// Specific event
+Route::get('/event/:id');
+
+Route::middleware('auth:api')->get('/checkin');
+
+
+// Admin routes
+// All prizes
+Route::get('/prizes');
+// Enabled prizes
+Route::get('/prizes/enabled');
+// New prize
+Route::post('/prize');
+// Update prize
+Route::patch('/prize/:id');
+// Pick random winner
+Route::get('/winner');
