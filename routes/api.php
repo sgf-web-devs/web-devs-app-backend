@@ -26,9 +26,9 @@ Route::middleware('auth:api')->get('/checkin');
 
 // Admin routes
 // All prizes
-Route::get('/prizes');
+Route::get('/prizes', 'PrizeController@index');
 // Enabled prizes
-Route::get('/prizes/enabled');
+Route::get('/prizes/enabled', 'PrizeController@enabled');
 // New prize
 Route::post('/prize');
 // Update prize
