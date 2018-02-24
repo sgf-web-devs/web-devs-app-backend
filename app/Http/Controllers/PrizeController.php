@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Prize;
 use Illuminate\Http\Request;
+use Exception;
 
 class PrizeController extends Controller
 {
@@ -45,5 +46,15 @@ class PrizeController extends Controller
         $prize->save();
 
         return response()->json($prize);
+    }
+
+    public function destroy(Request $request, Prize $prize) {
+        try {
+            $prize->delete();
+            return response()->json('deleted');
+        }
+        catch(Exception $e) {
+            return response()->json($e);
+        }
     }
 }

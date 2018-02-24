@@ -15,13 +15,13 @@ use Illuminate\Http\Request;
 
 // Public routes
 // All events
-//Route::get('/events');
-//// Upcoming event
-//Route::get('/event');
-//// Specific event
-//Route::get('/event/:id');
-//
-//Route::get('/checkin')->middleware('auth:api');
+Route::get('/events');
+// Upcoming event
+Route::get('/event');
+// Specific event
+Route::get('/event/:id');
+
+Route::get('/checkin')->middleware('auth:api');
 
 // Admin routes
 // All prizes
@@ -33,6 +33,6 @@ Route::post('/prize', 'PrizeController@create');
 // Update prize
 Route::patch('/prize/{prize}', 'PrizeController@update');
 //// Delete prize
-//Route::delete('/prize/:id');
+Route::delete('/prize/{prize}' ,'PrizeController@destroy');
 //// Pick random winner
 //Route::post('/winner');
