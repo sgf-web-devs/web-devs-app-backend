@@ -17,7 +17,7 @@
         <mat-card-content class="prize-form">
           <mat-form-field>
             <mat-select [(value)]="selectedPrize" placeholder="Choose a prize" required>
-              <mat-option *ngFor="let prize of prizes" [value]="prize">{{ prize }}</mat-option>
+              <mat-option *ngFor="let prize of prizes" [value]="prize">{{ prize.name }}</mat-option>
             </mat-select>
           </mat-form-field>
           <button

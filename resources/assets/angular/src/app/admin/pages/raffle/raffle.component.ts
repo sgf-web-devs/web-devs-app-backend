@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PrizesService } from '../../providers/prizes.service';
 
 @Component({
   selector: 'app-raffle',
@@ -14,15 +15,11 @@ export class RaffleComponent implements OnInit {
   public prizes = [];
   public selectedPrize = '';
 
-  constructor() { }
+  constructor(private prizesService: PrizesService) { }
 
   ngOnInit() {
-    this.prizes = [
-      'JetBrains License',
-      'Mug',
-      'T-shirt',
-      'Gift Certificate'
-    ];
+    this.prizesService.enabledPrizes().
+      subscribe(prizes => this.prizes = prizes);
   }
 
   selectWinner() {
