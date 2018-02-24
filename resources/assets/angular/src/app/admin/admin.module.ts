@@ -19,6 +19,7 @@ import { AdminRoutingModule, adminRoutingComponents } from './admin-routing.modu
 import { SharedModule } from '../shared/shared.module';
 import { InlineEditComponent } from './components/inline-edit/inline-edit.component';
 import { NewPrizeComponent } from './components/new-prize/new-prize.component';
+import { PrizesService } from './providers/prizes.service';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { NewPrizeComponent } from './components/new-prize/new-prize.component';
   ],
   entryComponents: [
     NewPrizeComponent
-  ]
+  ],
+  providers: [PrizesService]
 })
 export class AdminModule { }

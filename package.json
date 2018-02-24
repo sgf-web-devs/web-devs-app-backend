@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --vendor-chunk --host 0.0.0.0",
+    "start": "ng serve --vendor-chunk --host 0.0.0.0 --proxy-config proxy.conf.json",
     "dev": "npm run start",
     "build": "ng build --prod --vendor-chunk",
     "test": "ng test",

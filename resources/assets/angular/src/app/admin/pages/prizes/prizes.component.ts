@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatSort, MatTableDataSource } from '@angular/material';
 import { NewPrizeComponent } from '../../components/new-prize/new-prize.component';
+import { PrizesService } from '../../providers/prizes.service';
 
 @Component({
   selector: 'app-prizes',
@@ -13,17 +14,14 @@ export class PrizesComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSort) public sort: MatSort;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    public prizeService: PrizesService
+    ) {}
 
   ngOnInit() {
-    // TODO fetch data from server
-    const prizes = [
-      { id: 1, name: 'JetBrains License', enabled: true },
-      { id: 2, name: 'Mug', enabled: true },
-      { id: 3, name: 'T-shirt', enabled: true },
-      { id: 4, name: 'Stickers', enabled: true },
-    ];
-    this.tableData.data = prizes;
+    this.prizeService.allPrizes()
+      .subscribe((prizes: any) => this.tableData.data = prizes);
   }
 
   ngAfterViewInit() {
