@@ -16,4 +16,20 @@ class PrizeController extends Controller
     	$enabledPrizes = Prize::where('enabled', 1)->get();
     	return response()->json($enabledPrizes);
 		}
+
+		public function create(Request $request) {
+
+				$validator = \Validator::make($request->all(), [
+					'name' => 'required',
+					'enabled' => 'boolean'
+				]);
+
+				if ($validator->fails()) {
+					return response()->json($validator);
+				}
+
+				$prize = Prize::create($request->all());
+
+				return response()->json($prize);
+		}
 }
