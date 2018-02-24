@@ -31,7 +31,7 @@ Route::get('/prizes/enabled', 'PrizeController@enabled');
 // New prize
 Route::post('/prize', 'PrizeController@create');
 // Update prize
-//Route::patch('/prize/:id');
+Route::patch('/prize/{prize}', 'PrizeController@update');
 //// Delete prize
 //Route::delete('/prize/:id');
 //// Pick random winner
