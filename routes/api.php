@@ -21,7 +21,7 @@ Route::get('/event');
 // Specific event
 Route::get('/event/:id');
 
-Route::get('/checkin')->middleware('auth:api');
+Route::get('/checkin', 'EventController@checkin');
 
 // Admin routes
 // All prizes
