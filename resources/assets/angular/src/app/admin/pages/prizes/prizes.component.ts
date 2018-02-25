@@ -10,7 +10,7 @@ import { Prize } from '../../models/prize';
   styleUrls: ['./prizes.component.sass']
 })
 export class PrizesComponent implements OnInit, AfterViewInit {
-  public shownColumns = ['id', 'name', 'enabled'];
+  public shownColumns = ['id', 'name', 'enabled', 'delete'];
   public tableData = new MatTableDataSource();
 
   @ViewChild(MatSort) public sort: MatSort;
@@ -45,6 +45,17 @@ export class PrizesComponent implements OnInit, AfterViewInit {
     prize.enabled = event.checked;
     this.prizeService.updatePrize(prize)
       .subscribe((newPrize: Prize) => prize = newPrize);
+  }
+
+  deletePrize(prize: Prize) {
+    this.prizeService.deletePrize(prize).subscribe(message => {
+      // Angular Material's datatable only updates when a new array of data
+      // is assigned. Here we create a new array, remove prize that we
+      // deleted, then reassign the datatables datasource to be our new array
+      const newPrizeList = [...this.tableData.data];
+      newPrizeList.splice(newPrizeList.indexOf(prize), 1);
+      this.tableData.data = newPrizeList;
+    });
   }
 
   showAddPrizeForm() {

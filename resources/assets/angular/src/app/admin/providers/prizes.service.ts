@@ -25,7 +25,11 @@ export class PrizesService {
     return this.http.post('api/prize', prize, this.httpOptions);
   }
 
-  updatePrize(prize) {
+  updatePrize(prize: Prize) {
     return this.http.patch(`api/prize/${prize.id}`, prize, this.httpOptions);
+  }
+
+  deletePrize(prize: Prize) {
+    return this.http.delete(`api/prize/${prize.id}`, this.httpOptions);
   }
 }

@@ -20,6 +20,15 @@
       </mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+      <mat-cell *matCellDef="let prize" class="allow-overflow">
+        <button mat-icon-button (click)="deletePrize(prize)">
+          <mat-icon aria-label="Delete icon">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
     <mat-header-row *matHeaderRowDef="shownColumns"></mat-header-row>
     <mat-row *matRowDef="let prize; columns: shownColumns;"></mat-row>
   </mat-table>
