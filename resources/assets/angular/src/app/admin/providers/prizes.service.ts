@@ -24,4 +24,8 @@ export class PrizesService {
   newPrize(prize: Prize) {
     return this.http.post('api/prize', prize, this.httpOptions);
   }
+
+  updatePrize(prize) {
+    return this.http.patch(`api/prize/${prize.id}`, prize, this.httpOptions);
+  }
 }

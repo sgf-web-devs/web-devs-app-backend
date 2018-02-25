@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatDialog, MatSort, MatTableDataSource } from '@angular/material';
+import { MatCheckboxChange, MatDialog, MatSort, MatTableDataSource } from '@angular/material';
 import { NewPrizeComponent } from '../../components/new-prize/new-prize.component';
 import { PrizesService } from '../../providers/prizes.service';
 import { Prize } from '../../models/prize';
@@ -35,8 +35,16 @@ export class PrizesComponent implements OnInit, AfterViewInit {
     });
   }
 
-  updatePrize(prize, event) {
-    prize.name = event;
+  updatePrizeName(prize: Prize, name: string) {
+    prize.name = name;
+    this.prizeService.updatePrize(prize)
+      .subscribe((newPrize: Prize) => prize = newPrize);
+  }
+
+  updatePrizeEnabled(prize: Prize, event: MatCheckboxChange) {
+    prize.enabled = event.checked;
+    this.prizeService.updatePrize(prize)
+      .subscribe((newPrize: Prize) => prize = newPrize);
   }
 
   showAddPrizeForm() {

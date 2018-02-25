@@ -9,14 +9,14 @@
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
       <mat-cell *matCellDef="let prize">
-        <app-inline-edit [value]="prize.name" (update)="updatePrize(prize, $event)"></app-inline-edit>
+        <app-inline-edit [value]="prize.name" (update)="updatePrizeName(prize, $event)"></app-inline-edit>
       </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="enabled">
-      <mat-header-cell *matHeaderCellDef>Enabled</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Enabled</mat-header-cell>
       <mat-cell *matCellDef="let prize" class="allow-overflow">
-        <mat-checkbox [(ngModel)]="prize.enabled"></mat-checkbox>
+        <mat-checkbox [checked]="prize.enabled" (change)="updatePrizeEnabled(prize, $event)"></mat-checkbox>
       </mat-cell>
     </ng-container>
 
