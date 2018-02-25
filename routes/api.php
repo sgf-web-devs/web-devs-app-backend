@@ -25,6 +25,7 @@ Route::post('/checkin', 'EventController@checkin');
 
 // Admin routes
 // All prizes
+Route::post('/login', 'LoginController@login');
 Route::get('/prizes', 'PrizeController@index');
 // Enabled prizes
 Route::get('/prizes/enabled', 'PrizeController@enabled');
