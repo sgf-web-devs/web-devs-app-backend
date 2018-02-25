@@ -31,6 +31,12 @@ export class AdminNavComponent implements OnDestroy {
     // Use MediaQueryList to set initial sidenav state
     this.isMobile = this.mobileQuery.matches;
     this.sideNavOpened = !this.mobileQuery.matches;
+
+    this.router.events.subscribe(val => {
+      if (this.isMobile) {
+        this.sideNavOpened = false;
+      }
+    });
   }
 
   /**
