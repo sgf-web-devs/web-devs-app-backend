@@ -1,5 +1,7 @@
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -11,7 +13,18 @@ export class AdminNavComponent implements OnDestroy {
   public isMobile: boolean;
   public sideNavOpened: boolean;
 
-  constructor(media: MediaMatcher, private cd: ChangeDetectorRef) {
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+    })
+  };
+
+  constructor(
+    private media: MediaMatcher,
+    private cd: ChangeDetectorRef,
+    private http: HttpClient,
+    private router: Router
+  ) {
     // Create MediaQueryList and add listener
     this.mobileQuery = media.matchMedia('(max-width: 768px)');
     this.mobileQuery.addListener(this.mobileQueryListener.bind(this));
@@ -36,6 +49,13 @@ export class AdminNavComponent implements OnDestroy {
 
   toggleSideNav() {
     this.sideNavOpened = !this.sideNavOpened;
+  }
+
+  logout() {
+    this.http.get('api/logout').subscribe(response => {
+      console.log(response);
+      this.router.navigate(['/admin/login']);
+    });
   }
 
 }

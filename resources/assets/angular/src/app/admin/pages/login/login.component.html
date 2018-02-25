@@ -8,15 +8,26 @@
 				<mat-card-content>
 					<form>
 						<mat-form-field>
-							<input matInput placeholder="Username">
+							<input
+								matInput
+								placeholder="Email"
+								name="email"
+								[(ngModel)]="loginInfo.email"
+								(keyup.enter)="attemptLogin()">
 						</mat-form-field>
 						<mat-form-field>
-							<input matInput placeholder="password" type="password">
+							<input
+								matInput
+								placeholder="Password"
+								name="password"
+								type="password"
+								[(ngModel)]="loginInfo.password"
+								(keyup.enter)="attemptLogin()">
 						</mat-form-field>
 					</form>
 				</mat-card-content>
 				<mat-card-actions class="row end-xs">
-					<button mat-button color="accent">Login</button>
+					<button mat-button color="accent" (click)="attemptLogin()">Login</button>
 				</mat-card-actions>
 			</mat-card>
 		</div>

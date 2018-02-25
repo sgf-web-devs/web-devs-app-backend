@@ -23,4 +23,9 @@ class LoginController extends Controller
 
         return response()->json('Incorrect username and/or password', 401);
     }
+
+    public function logout(Request $request) {
+        Auth::logout();
+        return response()->json('Logged out');
+    }
 }
