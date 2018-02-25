@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatSort, MatTableDataSource } from '@angular/material';
 import { NewPrizeComponent } from '../../components/new-prize/new-prize.component';
 import { PrizesService } from '../../providers/prizes.service';
+import { Prize } from '../../models/prize';
 
 @Component({
   selector: 'app-prizes',
@@ -21,11 +22,17 @@ export class PrizesComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.prizeService.allPrizes()
-      .subscribe((prizes: any) => this.tableData.data = prizes);
+      .subscribe((prizes: Prize[]) => this.tableData.data = prizes);
   }
 
   ngAfterViewInit() {
     this.tableData.sort = this.sort;
+  }
+
+  createPrize(prize: Prize) {
+    this.prizeService.newPrize(prize).subscribe(newPrize => {
+      this.tableData.data = [...this.tableData.data, newPrize];
+    });
   }
 
   updatePrize(prize, event) {
@@ -38,9 +45,7 @@ export class PrizesComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // TODO POST this data to server
-      result.id = 5;
-      this.tableData.data = [...this.tableData.data, result];
+      this.createPrize(result);
     });
   }
 
