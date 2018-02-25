@@ -21,7 +21,7 @@ Route::get('/event');
 // Specific event
 Route::get('/event/:id');
 
-Route::get('/checkin', 'EventController@checkin');
+Route::post('/checkin', 'EventController@checkin');
 
 // Admin routes
 // All prizes
