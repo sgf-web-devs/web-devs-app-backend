@@ -20,6 +20,7 @@ import { SharedModule } from '../shared/shared.module';
 import { InlineEditComponent } from './components/inline-edit/inline-edit.component';
 import { NewPrizeComponent } from './components/new-prize/new-prize.component';
 import { PrizesService } from './providers/prizes.service';
+import { AuthService } from './providers/auth.service';
 
 
 @NgModule({
@@ -48,6 +49,6 @@ import { PrizesService } from './providers/prizes.service';
   entryComponents: [
     NewPrizeComponent
   ],
-  providers: [PrizesService]
+  providers: [PrizesService, AuthService]
 })
 export class AdminModule { }
