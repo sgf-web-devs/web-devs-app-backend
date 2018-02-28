@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class PrizeController extends Controller
 {
     public function index() {
-        if(!Auth::check()) {
+        if(!Auth::viaRemember()) {
             return response()->json('Denied', 401);
         }
         $prizes = Prize::all();
@@ -18,17 +18,17 @@ class PrizeController extends Controller
     }
 
     public function enabled() {
-        if(!Auth::check()) {
-            return response()->json('Denied', 401);
-        }
+//        if(!Auth::user()) {
+//            return response()->json('Denied', 401);
+//        }
         $enabledPrizes = Prize::where('enabled', 1)->get();
         return response()->json($enabledPrizes);
     }
 
     public function create(Request $request) {
-        if(!Auth::check()) {
-            return response()->json('Denied', 401);
-        }
+//        if(!Auth::user()) {
+//            return response()->json('Denied', 401);
+//        }
 
         $validator = \Validator::make($request->all(), [
             'name' => 'required',
@@ -45,9 +45,9 @@ class PrizeController extends Controller
     }
 
     public function update(Request $request, Prize $prize) {
-        if(!Auth::check()) {
-            return response()->json('Denied', 401);
-        }
+//        if(!is_null(Auth::user())) {
+//            return response()->json('Denied', 401);
+//        }
         if($request->has('name')) {
             $prize->name = $request->name;
         }
@@ -62,9 +62,9 @@ class PrizeController extends Controller
     }
 
     public function destroy(Request $request, Prize $prize) {
-        if(!Auth::check()) {
-            return response()->json('Denied', 401);
-        }
+//        if(!Auth::user()) {
+//            return response()->json('Denied', 401);
+//        }
         try {
             $prize->delete();
             return response()->json('deleted');

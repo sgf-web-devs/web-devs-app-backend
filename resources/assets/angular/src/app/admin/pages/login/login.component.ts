@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import * as logoImg from '../../../../assets/web-devs-logo-dark.svg';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../../providers/auth.service';
 

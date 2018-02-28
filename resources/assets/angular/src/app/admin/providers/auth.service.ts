@@ -24,7 +24,8 @@ export class AuthService {
 
   login(email: string, password: string, successRoute: string) {
     return this.http.post('api/login', {email, password}, this.httpOptions)
-      .subscribe(response => {
+      .subscribe((response) => {
+        console.log(response);
         this.loggedIn = true;
         this.router.navigate([successRoute]);
       });

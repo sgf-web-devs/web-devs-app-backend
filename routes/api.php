@@ -23,6 +23,10 @@ Route::get('/event/:id');
 
 Route::post('/checkin', 'EventController@checkin');
 
+Route::get('user', function() {
+    return response()->json(Auth::user());
+});
+
 // Admin routes
 // Auth endpoints
 Route::post('/login', 'LoginController@login');

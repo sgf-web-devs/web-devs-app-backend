@@ -17,8 +17,8 @@ class LoginController extends Controller
             return response()->json('Both email and password are required');
         }
 
-        if(Auth::attempt($request->all())) {
-            return response()->json('success');
+        if(Auth::attempt($request->all(), true)) {
+            return response()->json(Auth::user());
         }
 
         return response()->json('Incorrect username and/or password', 401);

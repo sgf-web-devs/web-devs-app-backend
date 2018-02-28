@@ -20,7 +20,7 @@ export class PrizesService {
   ) { }
 
   private handle401(error: HttpErrorResponse) {
-    this.router.navigate(['/admin/login']);
+    // this.router.navigate(['/admin/login']);
     return new ErrorObservable('You must be logged in to perform that action');
   }
 
