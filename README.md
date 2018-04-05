@@ -120,7 +120,8 @@ Push changes to your Fork on GitHub
 git push
 ```
 
-Browse to your branch on GitHub and make sure your commit(s) were pushed to GitHub, then click "New pull request", type a Title and Description, then click "Create pull request"
+Browse to your branch on GitHub, make sure your commit(s) were pushed to GitHub, 
+then click "Compare and Pull Request", type a Title and Description, then click "Create pull request".
 
 ## Notes
 Most of the app is a standard Laravel project. The only non standard (because there isn't a standard) is the Angular admin app. The root `package.json` file and `.angular-cli.json` are for the Angular project and their placement in the root directory allows us to run Angular commands without having to be in the Angular project folder. The rest of the Angular project is contained within `resources/assets/angular` and when the app is built, the output is copied to `public/dist`. 
