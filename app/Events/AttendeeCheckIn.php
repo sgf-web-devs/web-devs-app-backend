@@ -32,7 +32,7 @@ class AttendeeCheckIn implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('attendee-check-in.'.$attendee->id);
+        return new PrivateChannel('dashboard.coponent.html.'.$attendee->id);
     }
 
     public function broadcastWith()
