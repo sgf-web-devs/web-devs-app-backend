@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Events;
+
 use App\Attendee;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
