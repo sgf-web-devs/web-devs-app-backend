@@ -33,7 +33,7 @@ git clone git@github.com:<your-github-username>/web-devs-app-backend.git web-dev
 This will create a new branch based on the "master" branch (e.g. feat/2-endpoint-check-in). Any of your code changes will be contained in this branch.
 
 ```shell
-git checkout -b feat/<feature-name-here>
+git checkout -b feat/<feature-name-here> origin/master
 ```
 
 ### Development Environment
