@@ -33,7 +33,7 @@ git clone git@github.com:<your-github-username>/web-devs-app-backend.git web-dev
 This will create a new branch based on the "master" branch (e.g. feat/2-endpoint-check-in). Any of your code changes will be contained in this branch.
 
 ```shell
-git checkout -b feat/<feature-name-here>
+git checkout -b feat/<feature-name-here> origin/master
 ```
 
 ### Development Environment
@@ -78,15 +78,35 @@ yarn
    ```shell
    php artisan key:generate
    ```
-1. Create new MySQL database (e.g. install MySQL locally, spin up new AWS RDS, etc)
-1. Add MySQL credentials to `.env` file
-1. Run Laravel migrations to create MySQL tables
+1. Configure a Database. You can safely choose SQLite if you are testing locally, but you must choose MySQL if you are deploying to production.
+
+   * SQLite: Configure Laravel to use ```sqlite``` in ```.env``` file
+     ```
+     DB_CONNECTION=sqlite
+     ```
+
+   * MySQL: Setup a MySQL server, create an empty MySQL database, create a MySQL user, and update MySQL host, database, username, and password in the ```.env``` file.
+     ```
+     DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=homestead
+     DB_USERNAME=homestead
+     DB_PASSWORD=secret
+     ```
+  
+1. Run Laravel migrate to initialize database tables
    ```shell
    php artisan migrate
    ```
-1. Run Laravel seeds to populate sample MySQL data
+1. Run Laravel database seed to initialize database with sample records
    ```shell
    php artisan db:seed
+   ```
+1. Run Laravel tinker, then query all User records to verify records were created.
+   ```shell
+   php artisan tinker
+   App\User::all();
    ```
 
 ## Run Local Web Server

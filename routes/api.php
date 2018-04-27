@@ -38,4 +38,22 @@ Route::patch('/prize/{prize}', 'PrizeController@update');
 //// Delete prize
 Route::delete('/prize/{prize}' ,'PrizeController@destroy');
 //// Pick random winner
+
+//Route::post('/winner');
 Route::get('/prizes/assign/{id}', 'PrizeController@assign');
+
+Route::get('/pusher-test', function() {
+    $options = array(
+        'cluster' => 'us2',
+        'encrypted' => true
+      );
+      $pusher = new Pusher\Pusher(
+        env('PUSHER_APP_KEY'),
+        env('PUSHER_APP_SECRET'),
+        env('PUSHER_APP_ID'),
+        $options
+      );
+
+      $data['message'] = 'Levi Zitting';
+      $pusher->trigger('my-channel', 'my-event', $data);
+});
