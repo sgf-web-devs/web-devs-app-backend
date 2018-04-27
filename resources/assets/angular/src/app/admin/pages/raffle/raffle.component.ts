@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrizesService } from '../../providers/prizes.service';
 import { Prize } from '../../models/prize';
+import {Winner} from '../../models/winner';
 
 @Component({
   selector: 'app-raffle',
@@ -11,10 +12,11 @@ export class RaffleComponent implements OnInit {
 
   public winner = {
     name: '????? ??????',
-    photo: 'https://parents.lionheartfitnesskids.com/media/profile-images/default.png'
+    image: 'https://parents.lionheartfitnesskids.com/media/profile-images/default.png'
   };
+
   public prizes: Prize[] = [];
-  public selectedPrize = '';
+  public selectedPrize: Prize;
 
   constructor(private prizesService: PrizesService) { }
 
@@ -24,13 +26,11 @@ export class RaffleComponent implements OnInit {
   }
 
   selectWinner() {
-
-    if (this.selectedPrize === '') return;
-
-    this.winner = {
-      name: 'Levi Zitting',
-      photo: 'https://pbs.twimg.com/profile_images/960725896561803264/NzuHUANL_400x400.jpg'
-    };
+    //if (this.selectedPrize == null) return;
+    console.log(this.selectedPrize);
+    this.prizesService.assignPrize(this.selectedPrize).subscribe((winner: Winner) => {
+        this.winner = winner;
+    });
   }
 
 }

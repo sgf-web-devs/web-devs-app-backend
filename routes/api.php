@@ -38,4 +38,4 @@ Route::patch('/prize/{prize}', 'PrizeController@update');
 //// Delete prize
 Route::delete('/prize/{prize}' ,'PrizeController@destroy');
 //// Pick random winner
-//Route::post('/winner');
+Route::get('/prizes/assign/{id}', 'PrizeController@assign');

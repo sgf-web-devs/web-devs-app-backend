@@ -55,4 +55,9 @@ export class PrizesService {
     return this.http.delete(`api/prize/${prize.id}`, this.httpOptions)
       .pipe(catchError(this.catchHttpErrors.bind(this)));
   }
+
+  assignPrize(prize: Prize) {
+      return this.http.get(`api/prizes/assign/${prize.id}`, this.httpOptions)
+          .pipe(catchError(this.catchHttpErrors.bind(this)));
+  }
 }
