@@ -14,13 +14,6 @@ use Illuminate\Http\Request;
 */
 
 // Public routes
-// All events
-Route::get('/events');
-// Upcoming event
-Route::get('/event');
-// Specific event
-Route::get('/event/:id');
-
 Route::post('/checkin', 'EventController@checkin');
 
 // Admin routes
