@@ -78,6 +78,10 @@ yarn
    ```shell
    php artisan key:generate
    ```
+1. Generate a new secret key for JWT authentication (Used by the admin app)
+   ```shell
+   php artisan jwt:secret
+   ```
 1. Configure a Database. You can safely choose SQLite if you are testing locally, but you must choose MySQL if you are deploying to production.
 
    * SQLite: Configure Laravel to use ```sqlite``` in ```.env``` file
@@ -94,7 +98,7 @@ yarn
      DB_USERNAME=homestead
      DB_PASSWORD=secret
      ```
-  
+
 1. Run Laravel migrate to initialize database tables
    ```shell
    php artisan migrate
@@ -140,10 +144,10 @@ Push changes to your Fork on GitHub
 git push
 ```
 
-Browse to your branch on GitHub, make sure your commit(s) were pushed to GitHub, 
+Browse to your branch on GitHub, make sure your commit(s) were pushed to GitHub,
 then click "Compare and Pull Request", type a Title and Description, then click "Create pull request".
 
 ## Notes
-Most of the app is a standard Laravel project. The only non standard (because there isn't a standard) is the Angular admin app. The root `package.json` file and `.angular-cli.json` are for the Angular project and their placement in the root directory allows us to run Angular commands without having to be in the Angular project folder. The rest of the Angular project is contained within `resources/assets/angular` and when the app is built, the output is copied to `public/dist`. 
+Most of the app is a standard Laravel project. The only non standard (because there isn't a standard) is the Angular admin app. The root `package.json` file and `.angular-cli.json` are for the Angular project and their placement in the root directory allows us to run Angular commands without having to be in the Angular project folder. The rest of the Angular project is contained within `resources/assets/angular` and when the app is built, the output is copied to `public/dist`.
 
 For the Laravel app to serve the Angular app, there is a catch all route in `routes/web.php` that returns `public/dist/index.html`. We still have the ability to use normal Laravel blade views. We just have to declare their routes before the catch all route.

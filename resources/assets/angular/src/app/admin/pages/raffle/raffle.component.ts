@@ -26,8 +26,6 @@ export class RaffleComponent implements OnInit {
   }
 
   selectWinner() {
-    //if (this.selectedPrize == null) return;
-    console.log(this.selectedPrize);
     this.prizesService.assignPrize(this.selectedPrize).subscribe((winner: Winner) => {
         this.winner = winner;
     });

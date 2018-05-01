@@ -13,27 +13,34 @@ use Illuminate\Http\Request;
 |
 */
 
-// Public routes
-Route::post('/checkin', 'EventController@checkin');
-
 // Admin routes
-// Auth endpoints
-Route::post('/login', 'LoginController@login');
-Route::get('/logout', 'LoginController@logout');
-// All prizes
-Route::get('/prizes', 'PrizeController@index');
-// Enabled prizes
-Route::get('/prizes/enabled', 'PrizeController@enabled');
-// New prize
-Route::post('/prize', 'PrizeController@create');
-// Update prize
-Route::patch('/prize/{prize}', 'PrizeController@update');
-//// Delete prize
-Route::delete('/prize/{prize}' ,'PrizeController@destroy');
-//// Pick random winner
+// Authentication Routes
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function ($router) {
+    Route::post('login', 'AuthController@login')->name('login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+});
 
-//Route::post('/winner');
-Route::get('/prizes/assign/{id}', 'PrizeController@assign');
+Route::middleware(['api'])->group(function() {
+    // All prizes
+    Route::get('/prizes', 'PrizeController@index');
+    // Enabled prizes
+    Route::get('/prizes/enabled', 'PrizeController@enabled');
+    // New prize
+    Route::post('/prize', 'PrizeController@create');
+    // Update prize
+    Route::patch('/prize/{prize}', 'PrizeController@update');
+    //// Delete prize
+    Route::delete('/prize/{prize}' ,'PrizeController@destroy');
+    //// Pick random winner
+    Route::get('/prizes/assign/{id}', 'PrizeController@assign');
+});
+
+
 
 Route::get('/pusher-test', function() {
     $options = array(
