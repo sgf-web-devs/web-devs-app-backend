@@ -14,13 +14,6 @@ use Illuminate\Http\Request;
 */
 
 // Public routes
-// All events
-Route::get('/events');
-// Upcoming event
-Route::get('/event');
-// Specific event
-Route::get('/event/:id');
-
 Route::post('/checkin', 'EventController@checkin');
 
 // Admin routes
@@ -38,7 +31,9 @@ Route::patch('/prize/{prize}', 'PrizeController@update');
 //// Delete prize
 Route::delete('/prize/{prize}' ,'PrizeController@destroy');
 //// Pick random winner
+
 //Route::post('/winner');
+Route::get('/prizes/assign/{id}', 'PrizeController@assign');
 
 Route::get('/pusher-test', function() {
     $options = array(
