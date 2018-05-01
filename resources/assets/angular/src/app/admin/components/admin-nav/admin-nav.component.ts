@@ -54,7 +54,7 @@ export class AdminNavComponent implements OnDestroy {
   }
 
   logout() {
-    this.auth.logout('/admin/login');
+    this.auth.logout();
   }
 
 }
