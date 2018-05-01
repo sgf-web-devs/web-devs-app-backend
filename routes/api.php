@@ -17,9 +17,18 @@ use Illuminate\Http\Request;
 Route::post('/checkin', 'EventController@checkin');
 
 // Admin routes
-// Auth endpoints
-Route::post('/login', 'LoginController@login');
-Route::get('/logout', 'LoginController@logout');
+// Authentication Routes
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function ($router) {
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
+});
+
+
 // All prizes
 Route::get('/prizes', 'PrizeController@index');
 // Enabled prizes
@@ -32,7 +41,6 @@ Route::patch('/prize/{prize}', 'PrizeController@update');
 Route::delete('/prize/{prize}' ,'PrizeController@destroy');
 //// Pick random winner
 
-//Route::post('/winner');
 Route::get('/prizes/assign/{id}', 'PrizeController@assign');
 
 Route::get('/pusher-test', function() {
