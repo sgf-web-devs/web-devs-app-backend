@@ -5,7 +5,11 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthService {
 
-  private loggedIn = false;
+  private token = null;
+
+  private defaultRedirectUrl = '/raffle';
+
+  public redirectUrl = this.defaultRedirectUrl;
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -16,24 +20,46 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router
-  ) { }
+  ) {
+    const token = localStorage.getItem('token');
 
-  checkAuth() {
-    return this.loggedIn;
+    if (token !== null) {
+      this.token = token;
+    }
   }
 
-  login(email: string, password: string, successRoute: string) {
-    return this.http.post('api/login', {email, password}, this.httpOptions)
+  /**
+   * Sets a token internally and stores it in localstorage
+   */
+  private setToken(token: string): void {
+    this.token = token;
+
+    if (token === null) {
+      localStorage.removeItem('token');
+      return;
+    }
+
+    localStorage.setItem('token', token);
+  }
+
+  isAuthed(): boolean {
+    return this.token !== null;
+  }
+
+  login(email: string, password: string) {
+    return this.http.post('api/auth/login', {email, password}, this.httpOptions)
       .subscribe(response => {
-        this.loggedIn = true;
-        this.router.navigate([successRoute]);
+        console.log(response);
+        this.setToken(response['access_token']);
+        this.router.navigate([this.redirectUrl]);
       });
   }
 
-  logout(successRoute: string) {
-    this.http.get('api/logout').subscribe(response => {
-      this.loggedIn = false;
-      this.router.navigate([successRoute]);
+  logout() {
+    this.http.post('api/auth/logout', {}, this.httpOptions).subscribe(response => {
+      this.setToken(null);
+      this.redirectUrl = this.defaultRedirectUrl;
+      this.router.navigate(['/login']);
     });
   }
 
