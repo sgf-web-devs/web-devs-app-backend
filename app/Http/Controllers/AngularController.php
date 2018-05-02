@@ -7,7 +7,7 @@ use File;
 
 class AngularController extends Controller
 {
-	public function index() {
-		return File::get(public_path('dist/index.html'));
-	}
+    public function index() {
+        return File::get(public_path('dist/index.html'));
+    }
 }

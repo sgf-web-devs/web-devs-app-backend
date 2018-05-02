@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   };
 
   constructor(
-    private router: Router,
     private auth: AuthService
   ) { }
 
@@ -31,7 +30,6 @@ export class LoginComponent implements OnInit {
     this.auth.login(
       this.loginInfo.email,
       this.loginInfo.password,
-      '/admin/prizes'
     );
   }
 

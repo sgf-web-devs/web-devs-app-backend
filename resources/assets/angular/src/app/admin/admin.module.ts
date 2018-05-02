@@ -22,7 +22,6 @@ import { NewPrizeComponent } from './components/new-prize/new-prize.component';
 import { PrizesService } from './providers/prizes.service';
 import { AuthService } from './providers/auth.service';
 
-
 @NgModule({
   imports: [
     AdminRoutingModule,

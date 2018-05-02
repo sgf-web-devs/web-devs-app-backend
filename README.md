@@ -33,7 +33,7 @@ git clone git@github.com:<your-github-username>/web-devs-app-backend.git web-dev
 This will create a new branch based on the "master" branch (e.g. feat/2-endpoint-check-in). Any of your code changes will be contained in this branch.
 
 ```shell
-git checkout -b feat/<feature-name-here>
+git checkout -b feat/<feature-name-here> origin/master
 ```
 
 ### Development Environment
@@ -78,15 +78,39 @@ yarn
    ```shell
    php artisan key:generate
    ```
-1. Create new MySQL database (e.g. install MySQL locally, spin up new AWS RDS, etc)
-1. Add MySQL credentials to `.env` file
-1. Run Laravel migrations to create MySQL tables
+1. Generate a new secret key for JWT authentication (Used by the admin app)
+   ```shell
+   php artisan jwt:secret
+   ```
+1. Configure a Database. You can safely choose SQLite if you are testing locally, but you must choose MySQL if you are deploying to production.
+
+   * SQLite: Configure Laravel to use ```sqlite``` in ```.env``` file
+     ```
+     DB_CONNECTION=sqlite
+     ```
+
+   * MySQL: Setup a MySQL server, create an empty MySQL database, create a MySQL user, and update MySQL host, database, username, and password in the ```.env``` file.
+     ```
+     DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=homestead
+     DB_USERNAME=homestead
+     DB_PASSWORD=secret
+     ```
+
+1. Run Laravel migrate to initialize database tables
    ```shell
    php artisan migrate
    ```
-1. Run Laravel seeds to populate sample MySQL data
+1. Run Laravel database seed to initialize database with sample records
    ```shell
    php artisan db:seed
+   ```
+1. Run Laravel tinker, then query all User records to verify records were created.
+   ```shell
+   php artisan tinker
+   App\User::all();
    ```
 
 ## Run Local Web Server
@@ -120,10 +144,10 @@ Push changes to your Fork on GitHub
 git push
 ```
 
-Browse to your branch on GitHub, make sure your commit(s) were pushed to GitHub, 
+Browse to your branch on GitHub, make sure your commit(s) were pushed to GitHub,
 then click "Compare and Pull Request", type a Title and Description, then click "Create pull request".
 
 ## Notes
-Most of the app is a standard Laravel project. The only non standard (because there isn't a standard) is the Angular admin app. The root `package.json` file and `.angular-cli.json` are for the Angular project and their placement in the root directory allows us to run Angular commands without having to be in the Angular project folder. The rest of the Angular project is contained within `resources/assets/angular` and when the app is built, the output is copied to `public/dist`. 
+Most of the app is a standard Laravel project. The only non standard (because there isn't a standard) is the Angular admin app. The root `package.json` file and `.angular-cli.json` are for the Angular project and their placement in the root directory allows us to run Angular commands without having to be in the Angular project folder. The rest of the Angular project is contained within `resources/assets/angular` and when the app is built, the output is copied to `public/dist`.
 
 For the Laravel app to serve the Angular app, there is a catch all route in `routes/web.php` that returns `public/dist/index.html`. We still have the ability to use normal Laravel blade views. We just have to declare their routes before the catch all route.
