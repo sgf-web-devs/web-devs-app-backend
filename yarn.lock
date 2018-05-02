@@ -206,6 +206,10 @@
   version "6.0.107"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.107.tgz#917613ed129a5fd6601dc4b644c4c324aaad4f4c"
 
+"@types/pusher-js@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@types/pusher-js/-/pusher-js-4.2.0.tgz#88a06cc695a4cd5656738db9f66c9c9cc5057806"
+
 "@types/q@^0.0.32":
   version "0.0.32"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.32.tgz#bd284e57c84f1325da702babfc82a5328190c0c5"
