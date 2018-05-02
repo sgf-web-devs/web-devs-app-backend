@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/observable';
 import { of } from 'rxjs/observable/of';
+import * as Pusher from 'pusher-js';
 
 
 @Injectable()
@@ -7,7 +9,7 @@ export class AttendeeService {
 
   private photoUrl = 'https://parents.lionheartfitnesskids.com/media/profile-images/default.png';
 
-  private attendees = [
+  private attendeesDummyData = [
     {
       id: 1,
       name: 'Rosemaria Lilliman',
@@ -610,9 +612,22 @@ export class AttendeeService {
     }
   ];
 
-  constructor() { }
+  constructor() {  }
 
   public getAttendees() {
-    return of(this.attendees);
+    return of(this.attendeesDummyData);
+  }
+
+  public liveAttendees(): Observable<any> {
+    const pusher = new Pusher('d8f99c2183db4fb5c15a', {
+      cluster: 'us2',
+      encrypted: true
+    });
+
+    const channel = pusher.subscribe('my-channel');
+
+    return Observable.create(observer => {
+      channel.bind('my-event', data => observer.next(data));
+    });
   }
 }
