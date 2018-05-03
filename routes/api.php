@@ -25,6 +25,9 @@ Route::group([
     Route::post('me', 'AuthController@me');
 });
 
+// All attendees
+Route::get('/attendees', 'AttendeeController@index');
+
 Route::middleware(['api'])->group(function() {
     // All prizes
     Route::get('/prizes', 'PrizeController@index');
