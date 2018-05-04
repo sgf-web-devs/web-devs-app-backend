@@ -10,7 +10,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use TypeError;
 
-class AppJavaWebTokenTest extends TestCase
+class AppJsonWebTokenTest extends TestCase
 {
     /**
      * Attempt to generate JWT token for specified user
