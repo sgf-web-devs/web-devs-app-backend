@@ -27,6 +27,7 @@ Route::group([
 
 // All attendees
 Route::get('/attendees', 'AttendeeController@index');
+Route::post('/checkin', 'AttendeeController@checkin');
 
 Route::middleware(['api'])->group(function() {
     // All prizes
