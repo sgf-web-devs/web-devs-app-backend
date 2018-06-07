@@ -15,3 +15,4 @@ yarn-error.log
 /public/dist
 /public/assets
 /resources/assets/angular/src/environments/environment.prod.ts
+/resources/assets/angular/src/environments/environment.dev.ts

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import * as Pusher from 'pusher-js';
 
+import { environment } from './../../../environments/environment';
 import { Attendee } from './../../models/attendee';
 
 @Injectable()
@@ -17,7 +18,7 @@ export class AttendeeService {
   }
 
   public liveAttendees(): Observable<any> {
-    const pusher = new Pusher('d8f99c2183db4fb5c15a', {
+    const pusher = new Pusher(environment.pusherAppKey, {
       cluster: 'us2',
       encrypted: true
     });
