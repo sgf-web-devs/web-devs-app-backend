@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import * as Pusher from 'pusher-js';
 
 import { environment } from './../../../environments/environment';
 import { Attendee } from './../../models/attendee';
+
+declare const Pusher: any;
 
 @Injectable()
 export class AttendeeService {
@@ -21,7 +22,7 @@ export class AttendeeService {
     const pusher = new Pusher(environment.pusherAppKey, {
       wsHost: 'ws.pusherapp.com',
       httpHost: 'sockjs.pusher.com',
-      cluster: 'us2',
+      cluster: 'mt1',
       encrypted: true
     });
 
