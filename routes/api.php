@@ -19,10 +19,10 @@ Route::group([
     'middleware' => 'api',
     'prefix' => 'auth'
 ], function ($router) {
-    Route::post('login', 'AuthController@login')->name('login');
-    Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
+    Route::post('/login', 'AuthController@login')->name('login');
+    Route::post('/logout', 'AuthController@logout');
+    Route::post('/refresh', 'AuthController@refresh');
+    Route::post('/me', 'AuthController@me');
 });
 
 // NOTE: Do NOT mix singular and plural nouns in API endpoints. Group needs to decide on singular or plural,
@@ -68,22 +68,4 @@ Route::middleware(['api'])->group(function() {
     Route::patch('/user/{user}', 'UserController@update');
     // Delete user
     Route::delete('/user/{user}' ,'UserController@destroy');
-});
-
-
-
-Route::get('/pusher-test', function() {
-    $options = array(
-        'cluster' => 'us2',
-        'encrypted' => true
-      );
-      $pusher = new Pusher\Pusher(
-        env('PUSHER_APP_KEY'),
-        env('PUSHER_APP_SECRET'),
-        env('PUSHER_APP_ID'),
-        $options
-      );
-
-      $data['message'] = 'Levi Zitting';
-      $pusher->trigger('my-channel', 'my-event', $data);
 });
