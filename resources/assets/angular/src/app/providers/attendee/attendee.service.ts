@@ -19,10 +19,8 @@ export class AttendeeService {
   }
 
   public liveAttendees(): Observable<any> {
-    const pusher = new Pusher(environment.pusherAppKey, {
-      wsHost: 'ws.pusherapp.com',
-      httpHost: 'sockjs.pusher.com',
-      cluster: 'mt1',
+    const pusher = new Pusher(environment.pusher.appKey, {
+      cluster: environment.pusher.cluster,
       encrypted: true
     });
 

@@ -5,5 +5,8 @@
 
 export const environment = {
   production: false,
-  pusherAppKey: ''
+  pusher: {
+    appKey: '',
+    cluster: '',
+  }
 };
