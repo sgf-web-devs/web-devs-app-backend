@@ -14,3 +14,4 @@ yarn-error.log
 .env
 /public/dist
 /public/assets
+/resources/assets/angular/src/environments/environment.prod.ts
