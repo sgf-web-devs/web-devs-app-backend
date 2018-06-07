@@ -48,8 +48,7 @@ class AttendeeController extends Controller
             $options
         );
 
-        $data['new-checkin'] = $checkin;
-        $pusher->trigger('attendees', 'new-checkin', $data);
+        $pusher->trigger('attendees', 'new-checkin', $checkin);
 
         return $checkin;
     }
