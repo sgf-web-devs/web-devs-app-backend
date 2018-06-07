@@ -18,9 +18,17 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.attendeeProvider.getAttendees().subscribe(
-      attendees => this.attendees = attendees
-    );
+    this.attendeeProvider.getAttendees().subscribe(attendees => {
+      this.attendees = attendees;
+      this.attendeesListener();
+    });
+  }
+
+  private attendeesListener() {
+    this.attendeeProvider.liveAttendees()
+      .subscribe(data => {
+        console.log(data);
+      });
   }
 
 }
