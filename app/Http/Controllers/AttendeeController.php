@@ -7,13 +7,10 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\CheckinPost;
+use Pusher\Pusher;
 
 class AttendeeController extends Controller
 {
-    public function __construct()
-    {
-        //$this->middleware('auth:api', ['except' => ['checkin']]);
-    }
 
     public function index()
     {
@@ -39,6 +36,19 @@ class AttendeeController extends Controller
         $checkin->image = $request->image;
         $checkin->chosen = false;
         $checkin->save();
+
+        $options = array(
+            'cluster' => 'us2',
+            'encrypted' => true
+        );
+        $pusher = new Pusher(
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
+            $options
+        );
+
+        $pusher->trigger('attendees', 'new-checkin', $checkin);
 
         return $checkin;
     }
