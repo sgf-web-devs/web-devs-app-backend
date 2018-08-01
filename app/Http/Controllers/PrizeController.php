@@ -84,8 +84,12 @@ class PrizeController extends Controller
 
         $today = Carbon::today();
 
-        $winner = Checkin::where('created_at', '>=', $today->toDateTimeString())
-            ->where('chosen', '0')
+        // $winner = Checkin::where('created_at', '>=', $today->toDateTimeString())
+        //     ->where('chosen', '0')
+        //     ->inRandomOrder()
+        //     ->first();
+
+        $winner = Checkin::where('chosen', '0')
             ->inRandomOrder()
             ->first();
 
