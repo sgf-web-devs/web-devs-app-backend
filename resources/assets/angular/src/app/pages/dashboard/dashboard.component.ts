@@ -29,13 +29,13 @@ export class DashboardComponent implements OnInit {
     this.attendeeProvider.liveAttendees()
       .subscribe((attendee: Attendee) => {
         this.attendees = [
-          ...this.attendees,
           {
             id: attendee.id,
             name: attendee.name,
             image: attendee.image,
             email: attendee.email
-          }
+          },
+          ...this.attendees,
         ];
       });
   }
