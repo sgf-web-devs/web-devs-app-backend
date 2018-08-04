@@ -25,6 +25,12 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  refreshAttendees() {
+    this.attendeeProvider.getAttendees().subscribe(attendees => {
+      this.attendees = attendees;
+    });
+  }
+
   private attendeesListener() {
     this.attendeeProvider.liveAttendees()
       .subscribe((attendee: Attendee) => {
