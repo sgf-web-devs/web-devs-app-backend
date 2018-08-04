@@ -1,18 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-attendee',
   templateUrl: './attendee.component.html',
   styleUrls: ['./attendee.component.sass']
 })
-export class AttendeeComponent implements OnInit {
+export class AttendeeComponent {
 
   @Input()
   public attendee;
 
-  constructor() { }
+  constructor(
+    private sanitizer: DomSanitizer
+  ) { }
 
-  ngOnInit() {
+  getBackground(image: string) {
+    return this.sanitizer.bypassSecurityTrustStyle(`url(${image})`);
   }
 
 }

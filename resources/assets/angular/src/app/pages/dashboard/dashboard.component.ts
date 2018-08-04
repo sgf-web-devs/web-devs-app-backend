@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import * as logoImg from '../../../assets/web-devs-logo.svg';
 import { AttendeeService } from '../../providers/attendee/attendee.service';
-import { Attendee } from './../../models/attendee';
+import { Attendee } from '../../models/attendee';
 
 @Component({
   selector: 'app-dashboard',

@@ -1,9 +1,6 @@
 <div class="row top-xs attendee">
-  <div class="profile-img">
-    <img [src]="attendee.image" [alt]="attendee.name + ' Profile Photo'">
-  </div>
+  <div class="profile-img" [style.background-image]="getBackground(attendee.image)"></div>
   <div class="col">
-    <h3>{{ attendee.name }}</h3>
-    <p>{{ attendee.email }}</p>
+    <h3 class="name">{{ attendee.name }}</h3>
   </div>
 </div>
