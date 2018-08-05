@@ -14,7 +14,7 @@ class CheckinPost extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|unique:checkins',
+            'email' => 'required|email',
             'name' => 'required'
         ];
     }
