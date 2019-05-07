@@ -32,6 +32,7 @@ class AttendeeController extends Controller
         // - Myke
         $checkin = new Checkin();
         $checkin->name = $request->name;
+        $checkin->meetupid = $request->meetupid;
         $checkin->email = $request->email;
         $checkin->image = $request->image;
         $checkin->chosen = false;
